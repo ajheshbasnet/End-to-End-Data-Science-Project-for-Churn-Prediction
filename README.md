@@ -37,7 +37,7 @@ This project demonstrates a complete machine learning pipeline for predicting cu
    git clone https://github.com/ajheshbasnet/End-to-End-Data-Science-Project-for-Churn-Prediction.git
    cd End-to-End-Data-Science-Project-for-Churn-Prediction
 
-pip install -r requirements.txt
-uvicorn src.inference:app --host 0.0.0.0 --port 8000
-Open http://127.0.0.1:8000/ in your browser.
+- pip install -r requirements.txt
+- uvicorn src.inference:app --host 0.0.0.0 --port 8000
+- Open http://127.0.0.1:8000/ in your browser.
 
