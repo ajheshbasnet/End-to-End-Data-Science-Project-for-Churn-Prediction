@@ -1,3 +1,4 @@
+import os
 import pickle
 import pandas as pd
 from pydantic import BaseModel
@@ -6,7 +7,14 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-with open(r'models\rfc.pkl', 'rb') as f:
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Path to models folder relative to this file
+MODEL_PATH = os.path.join(BASE_DIR, '..', 'models', 'rfc.pkl')
+MODEL_PATH = os.path.normpath(MODEL_PATH)
+
+
+with open(MODEL_PATH, 'rb') as f:
     random_forest = pickle.load(f)
 
 class InputSchema(BaseModel):
