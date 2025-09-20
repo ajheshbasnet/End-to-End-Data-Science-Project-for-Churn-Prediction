@@ -26,9 +26,10 @@ This project demonstrates a complete machine learning pipeline for predicting cu
 
 ---
 
-## File Structure
+## 📂Project Structure
 
-├── .dvc                    # Data Version Control files
+```plaintext
+├── .dvc                   # Data Version Control files
 ├── .github/workflows       # GitHub Actions CI workflows
 ├── data                    # Contains datasets
 ├── data_dump/files/md5     # Metadata related to the datasets
