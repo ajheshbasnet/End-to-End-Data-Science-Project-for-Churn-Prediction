@@ -6,7 +6,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-with open(r'C:\\Users\\hp\\OneDrive\\Desktop\\DATA-SCIENCE-PROJECT\\models\\rfc.pkl', 'rb') as f:
+with open(r'models\rfc.pkl', 'rb') as f:
     random_forest = pickle.load(f)
 
 class InputSchema(BaseModel):
