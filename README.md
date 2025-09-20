@@ -50,7 +50,7 @@ This project demonstrates a complete machine learning pipeline for predicting cu
 
 
 ---
-
+```
 ## 🚀 Setup & Run Locally
 
 1. Clone the repository:
