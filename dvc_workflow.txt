@@ -16,3 +16,12 @@
 12. Then git add-commit-push (we're saving V2 of our data at this point)
 13. Check dvc/git status, everything should be upto date.
 14. Now repeat step 10-12 for v3 of data.
+
+
+#---------------------------------------------------------------------#
+
+How the fuck dvc tracks the data??
+
+1. In data.dvc the last dataset/artifact's of the data which has been "dvc commit and dvc push" will be stored. 
+2. And Whenever you do "dvc status" it performs the hashing operations and compare the hash ids and if they are 
+   same them "up to date" or else even if you remove a single row or change 68 to 69 then the hashid will be different and then it will show "modified"
