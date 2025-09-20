@@ -26,6 +26,27 @@ This project demonstrates a complete machine learning pipeline for predicting cu
 
 ---
 
+## File Structure
+
+├── .dvc                    # Data Version Control files
+├── .github/workflows       # GitHub Actions CI workflows
+├── data                    # Contains datasets
+├── data_dump/files/md5     # Metadata related to the datasets
+├── models                  # Trained machine learning models
+├── src                     # Source code for data processing and models
+│   ├── inference.py        # Model inference logic
+│   ├── main.ipynb          # Jupyter notebook for data analysis
+│   └── index.html          # HTML template for UI
+├── testing                 # Unit and integration tests
+├── .dvcignore              # DVC tracking exclusions
+├── .gitignore              # Git ignore file
+├── README.md               # Project overview and documentation
+├── data.dvc                # Data version control tracking
+├── dvc_workflow.txt        # DVC workflow configuration
+├── requirements.txt        # Python dependencies
+└── setup.py                # Setup script
+
+
 
 ---
 
