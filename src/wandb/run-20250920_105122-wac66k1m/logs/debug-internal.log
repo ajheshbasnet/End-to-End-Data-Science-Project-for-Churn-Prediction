@@ -1,0 +1,16 @@
+{"time":"2025-09-20T10:51:28.3252705+05:30","level":"INFO","msg":"stream: starting","core version":"0.22.0"}
+{"time":"2025-09-20T10:51:30.8398318+05:30","level":"INFO","msg":"stream: created new stream","id":"wac66k1m"}
+{"time":"2025-09-20T10:51:30.8403385+05:30","level":"INFO","msg":"stream: started","id":"wac66k1m"}
+{"time":"2025-09-20T10:51:30.8464113+05:30","level":"INFO","msg":"writer: started","stream_id":"wac66k1m"}
+{"time":"2025-09-20T10:51:30.8586315+05:30","level":"INFO","msg":"handler: started","stream_id":"wac66k1m"}
+{"time":"2025-09-20T10:51:30.8591517+05:30","level":"INFO","msg":"sender: started","stream_id":"wac66k1m"}
+{"time":"2025-09-20T11:06:02.4069646+05:30","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/ajheshbasnet-kpriet/DataScienceProject/wac66k1m/file_stream"}
+{"time":"2025-09-20T11:06:02.4403342+05:30","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found path=files/ajheshbasnet-kpriet/DataScienceProject/wac66k1m/file_stream: {\"error\":\"project ajheshbasnet-kpriet/DataScienceProject not found while streaming file\"}"}
+{"time":"2025-09-20T11:07:41.3155354+05:30","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"updating run metadata","runtime_seconds":0.0816091}],"total_operations":1}}
+{"time":"2025-09-20T11:07:41.6915679+05:30","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-09-20T11:07:41.6980905+05:30","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404: {\"data\":{\"createRunFiles\":null},\"errors\":[{\"message\":\"run DataScienceProject/wac66k1m not found during createRunFiles\",\"path\":[\"createRunFiles\"]}]}"}
+{"time":"2025-09-20T11:07:43.3481206+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-09-20T11:07:43.5039455+05:30","level":"INFO","msg":"stream: closing","id":"wac66k1m"}
+{"time":"2025-09-20T11:07:43.5039455+05:30","level":"INFO","msg":"handler: closed","stream_id":"wac66k1m"}
+{"time":"2025-09-20T11:07:43.9209192+05:30","level":"INFO","msg":"sender: closed","stream_id":"wac66k1m"}
+{"time":"2025-09-20T11:07:43.9209192+05:30","level":"INFO","msg":"stream: closed","id":"wac66k1m"}

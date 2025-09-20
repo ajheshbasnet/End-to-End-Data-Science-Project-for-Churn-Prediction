@@ -1,0 +1,35 @@
+2025-09-20 11:31:20,551 INFO    MainThread:8936 [wandb_init.py:setup_run_log_directory():686] Logging user logs to c:\Users\hp\OneDrive\Desktop\DATA-SCIENCE-PROJECT\src\wandb\run-20250920_113120-idu5n02z\logs\debug.log
+2025-09-20 11:31:20,555 INFO    MainThread:8936 [wandb_init.py:setup_run_log_directory():687] Logging internal logs to c:\Users\hp\OneDrive\Desktop\DATA-SCIENCE-PROJECT\src\wandb\run-20250920_113120-idu5n02z\logs\debug-internal.log
+2025-09-20 11:31:20,558 INFO    MainThread:8936 [wandb_init.py:monkeypatch_ipython():605] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x0000026E56609150>
+2025-09-20 11:31:20,561 INFO    MainThread:8936 [wandb_init.py:init():813] calling init triggers
+2025-09-20 11:31:20,561 INFO    MainThread:8936 [wandb_init.py:init():818] wandb.init called with sweep_config: {}
+config: {'n_estimators': 80, 'criterion': 'gini', 'max_depth': 11, 'min_samples_split': 2, 'min_samples_leaf': 1, 'min_weight_fraction_leaf': 0, 'max_features': 'sqrt', '_wandb': {}}
+2025-09-20 11:31:20,563 INFO    MainThread:8936 [wandb_init.py:init():861] starting backend
+2025-09-20 11:31:20,567 INFO    MainThread:8936 [wandb_init.py:init():864] sending inform_init request
+2025-09-20 11:31:20,608 INFO    MainThread:8936 [wandb_init.py:init():872] backend started and connected
+2025-09-20 11:31:20,882 INFO    MainThread:8936 [wandb_run.py:_label_probe_notebook():1330] probe notebook
+2025-09-20 11:31:20,931 INFO    MainThread:8936 [wandb_run.py:_label_probe_notebook():1340] Unable to probe notebook: 'charmap' codec can't decode byte 0x81 in position 319639: character maps to <undefined>
+2025-09-20 11:31:20,932 INFO    MainThread:8936 [wandb_init.py:init():942] updated telemetry
+2025-09-20 11:31:22,476 INFO    MainThread:8936 [wandb_init.py:init():966] communicating run to backend with 90.0 second timeout
+2025-09-20 11:31:23,428 INFO    MainThread:8936 [wandb_init.py:init():1017] starting run threads in backend
+2025-09-20 11:31:24,228 INFO    MainThread:8936 [wandb_run.py:_console_start():2506] atexit reg
+2025-09-20 11:31:24,229 INFO    MainThread:8936 [wandb_run.py:_redirect():2354] redirect: wrap_raw
+2025-09-20 11:31:24,229 INFO    MainThread:8936 [wandb_run.py:_redirect():2423] Wrapping output streams.
+2025-09-20 11:31:24,234 INFO    MainThread:8936 [wandb_run.py:_redirect():2446] Redirects installed.
+2025-09-20 11:31:24,237 INFO    MainThread:8936 [wandb_init.py:init():1057] run started, returning control to user process
+2025-09-20 11:31:24,239 INFO    MainThread:8936 [wandb_init.py:_post_run_cell_hook():575] [no run ID] resuming backend
+2025-09-20 11:31:25,424 INFO    MainThread:8936 [jupyter.py:save_ipynb():404] [no run ID] not saving jupyter notebook
+2025-09-20 11:31:25,425 INFO    MainThread:8936 [wandb_init.py:_pre_run_cell_hook():564] [no run ID] pausing backend
+2025-09-20 11:31:28,770 INFO    MainThread:8936 [wandb_init.py:_post_run_cell_hook():575] [no run ID] resuming backend
+2025-09-20 11:31:28,790 INFO    MainThread:8936 [jupyter.py:save_ipynb():404] [no run ID] not saving jupyter notebook
+2025-09-20 11:31:28,790 INFO    MainThread:8936 [wandb_init.py:_pre_run_cell_hook():564] [no run ID] pausing backend
+2025-09-20 11:31:28,860 INFO    MainThread:8936 [wandb_init.py:_post_run_cell_hook():575] [no run ID] resuming backend
+2025-09-20 11:31:28,889 INFO    MainThread:8936 [jupyter.py:save_ipynb():404] [no run ID] not saving jupyter notebook
+2025-09-20 11:31:28,889 INFO    MainThread:8936 [wandb_init.py:_pre_run_cell_hook():564] [no run ID] pausing backend
+2025-09-20 11:31:28,895 INFO    MainThread:8936 [wandb_run.py:_finish():2272] finishing run ajheshbasnet-kpriet/DataScience/idu5n02z
+2025-09-20 11:31:28,906 INFO    MainThread:8936 [jupyter.py:save_ipynb():404] not saving jupyter notebook
+2025-09-20 11:31:28,906 INFO    MainThread:8936 [wandb_init.py:_jupyter_teardown():590] cleaning up jupyter logic
+2025-09-20 11:31:28,907 INFO    MainThread:8936 [wandb_run.py:_atexit_cleanup():2471] got exitcode: 0
+2025-09-20 11:31:28,907 INFO    MainThread:8936 [wandb_run.py:_restore():2453] restore
+2025-09-20 11:31:28,908 INFO    MainThread:8936 [wandb_run.py:_restore():2459] restore done
+2025-09-20 11:31:30,771 INFO    MainThread:8936 [wandb_run.py:_footer_sync_info():3867] logging synced files

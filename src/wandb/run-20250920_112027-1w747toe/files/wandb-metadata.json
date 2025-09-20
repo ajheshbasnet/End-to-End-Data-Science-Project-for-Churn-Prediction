@@ -1,0 +1,28 @@
+{
+  "os": "Windows-10-10.0.19045-SP0",
+  "python": "CPython 3.13.3",
+  "startedAt": "2025-09-20T05:50:27.287017Z",
+  "program": "c:\\Users\\hp\\OneDrive\\Desktop\\DATA-SCIENCE-PROJECT\\src\\main.ipynb",
+  "codePath": "OneDrive\\Desktop\\DATA-SCIENCE-PROJECT\\src\\main.ipynb",
+  "codePathLocal": "main.ipynb",
+  "git": {
+    "remote": "https://gitlab.com/ajheshbasnet/cicd-pipelines.git",
+    "commit": "8c43648a31f3d3415cf41326858899e4f6f029fd"
+  },
+  "email": "ajheshbasnet@gmail.com",
+  "root": "c:\\Users\\hp\\OneDrive\\Desktop\\DATA-SCIENCE-PROJECT\\src",
+  "host": "Ajhesh",
+  "executable": "c:\\Users\\hp\\OneDrive\\Desktop\\DATA-SCIENCE-PROJECT\\venv\\Scripts\\python.exe",
+  "cpu_count": 2,
+  "cpu_count_logical": 2,
+  "disk": {
+    "/": {
+      "total": "126701789184",
+      "used": "112790413312"
+    }
+  },
+  "memory": {
+    "total": "4157509632"
+  },
+  "writerId": "5xug0j7mzl4f6vj7pi9c0zgki2hc0nyc"
+}
