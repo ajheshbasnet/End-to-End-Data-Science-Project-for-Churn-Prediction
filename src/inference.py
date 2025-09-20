@@ -56,18 +56,3 @@ def predict(predict: InputSchema):
         output = "Leave"    
 
     return {"predicted": output}
-
-# input_format = InputSchema(
-#     CreditScore=658,
-#     Age=43,
-#     Tenure=13,
-#     Balance=599999,
-#     NumOfProducts=0,
-#     HasCrCard=0,
-#     IsActiveMember=1,
-#     EstimatedSalary=500000,
-#     Country="Germany",
-#     Gender="MALE"
-# )
-
-# print(predict(input_format))
