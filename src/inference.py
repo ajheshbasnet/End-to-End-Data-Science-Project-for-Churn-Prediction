@@ -3,9 +3,18 @@ import pickle
 import pandas as pd
 from pydantic import BaseModel
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Replace "*" with your frontend origin in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -18,14 +27,14 @@ with open(MODEL_PATH, 'rb') as f:
     random_forest = pickle.load(f)
 
 class InputSchema(BaseModel):
-    CreditScore: int
+    CreditScore: float
     Age: int
     Tenure: int
-    Balance: int
+    Balance: float
     NumOfProducts: int
     HasCrCard: int
     IsActiveMember: int 
-    EstimatedSalary: int
+    EstimatedSalary: float
     Country: str
     Gender: str
 

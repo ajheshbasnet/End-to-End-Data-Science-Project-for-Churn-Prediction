@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Risk Analytics | EuroBank Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0066b2;
+        }
+
+        .user-info {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            color: #6b7280;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 32px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 24px;
+            border-bottom: 1px solid #e5e7eb;
+            background: #fafbfc;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+            background: #ffffff;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #0066b2;
+            box-shadow: 0 0 0 3px rgba(0, 102, 178, 0.1);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #0066b2;
+        }
+
+        .btn-primary {
+            background: #0066b2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #004d87;
+        }
+
+        .btn-primary:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .results-container {
+            min-height: 400px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6b7280;
+        }
+
+        .empty-icon {
+            width: 64px;
+            height: 64px;
+            background: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+        }
+
+        .risk-result {
+            padding: 32px;
+            text-align: center;
+        }
+
+        .risk-high {
+            background: linear-gradient(180deg, #fef2f2 0%, #fecaca 100%);
+            border-left: 4px solid #dc2626;
+        }
+
+        .risk-low {
+            background: linear-gradient(180deg, #f0fdf4 0%, #bbf7d0 100%);
+            border-left: 4px solid #16a34a;
+        }
+
+        .risk-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 32px;
+        }
+
+        .risk-high .risk-icon {
+            background: #dc2626;
+            color: white;
+        }
+
+        .risk-low .risk-icon {
+            background: #16a34a;
+            color: white;
+        }
+
+        .risk-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .risk-high .risk-title {
+            color: #991b1b;
+        }
+
+        .risk-low .risk-title {
+            color: #166534;
+        }
+
+        .risk-subtitle {
+            font-size: 16px;
+            margin-bottom: 24px;
+            opacity: 0.8;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0066b2;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .loading-state {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .prediction-badge {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 20px;
+            border-radius: 25px;
+            margin: 20px 0;
+            font-size: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .risk-high .prediction-badge {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: #991b1b;
+        }
+
+        .risk-low .prediction-badge {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.3);
+            color: #166534;
+        }
+
+        width: 32px;
+        height: 32px;
+        border: 3px solid #e5e7eb;
+        border-top: 3px solid #0066b2;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-top: 16px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .breadcrumb {
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #0066b2;
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: #6b7280;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 24px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">EuroBank Analytics</div>
+            <div class="user-info">Risk Analytics Portal</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            <span>/</span>
+            <a href="#">Analytics</a>
+            <span>/</span>
+            <span>Customer Risk Assessment</span>
+        </div>
+
+        <h1 class="page-title">Customer Risk Analytics</h1>
+        <p class="page-subtitle">Assess customer retention probability using advanced predictive modeling</p>
+
+        <div class="main-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Customer Information</h2>
+                </div>
+                <div class="card-body">
+                    <form id="riskForm">
+                        <div class="form-group">
+                            <label class="form-label">Credit Score</label>
+                            <input type="number" class="form-input" id="creditScore" min="300" max="850" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Age</label>
+                            <input type="number" class="form-input" id="age" min="18" max="100" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Tenure (Years)</label>
+                            <input type="number" class="form-input" id="tenure" min="0" max="10" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Account Balance ($)</label>
+                            <input type="number" class="form-input" id="balance" min="0" step="0.01" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Number of Products</label>
+                            <select class="form-select" id="numProducts" required>
+                                <option value="">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Estimated Salary ($)</label>
+                            <input type="number" class="form-input" id="estimatedSalary" min="0" step="0.01" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Geography</label>
+                            <select class="form-select" id="country" required>
+                                <option value="">Select Country</option>
+                                <option value="france">France</option>
+                                <option value="germany">Germany</option>
+                                <option value="spain">Spain</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Gender</label>
+                            <select class="form-select" id="gender" required>
+                                <option value="">Select</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Credit Card Holder</label>
+                            <select class="form-select" id="hasCrCard" required>
+                                <option value="">Select</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Active Member</label>
+                            <select class="form-select" id="isActiveMember" required>
+                                <option value="">Select</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="analyzeBtn">
+                            Analyze Risk
+                        </button>
+                    </form>
+                    <div class="error-message" id="errorMessage"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Risk Assessment Results</h2>
+                </div>
+                <div class="card-body results-container">
+                    <div id="emptyState" class="empty-state">
+                        <div class="empty-icon">📊</div>
+                        <h3>Ready for Analysis</h3>
+                        <p>Complete the customer information form to generate a risk assessment</p>
+                    </div>
+
+                    <div id="loadingState" class="loading-state">
+                        <div class="loading-spinner"></div>
+                        <p>Processing customer data...</p>
+                    </div>
+
+                    <div id="resultsState" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let assessmentCount = 0;
+
+        document.getElementById('riskForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = {
+                CreditScore: parseInt(document.getElementById('creditScore').value),
+                Age: parseInt(document.getElementById('age').value),
+                Tenure: parseInt(document.getElementById('tenure').value),
+                Balance: parseFloat(document.getElementById('balance').value),
+                NumOfProducts: parseInt(document.getElementById('numProducts').value),
+                HasCrCard: parseInt(document.getElementById('hasCrCard').value),
+                IsActiveMember: parseInt(document.getElementById('isActiveMember').value),
+                EstimatedSalary: parseFloat(document.getElementById('estimatedSalary').value),
+                Country: document.getElementById('country').value,
+                Gender: document.getElementById('gender').value
+            };
+
+            // Show loading state
+            document.getElementById('emptyState').style.display = 'none';
+            document.getElementById('resultsState').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('analyzeBtn').disabled = true;
+            document.getElementById('analyzeBtn').textContent = 'Analyzing...';
+
+            try {
+                // Make API call
+                const response = await fetch('http://127.0.0.1:8000/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                assessmentCount++;
+
+                // Hide loading
+                document.getElementById('loadingState').style.display = 'none';
+
+                // Show results
+                const resultsHTML = `
+                <div class="risk-result ${result.predicted === "Leave" ? 'risk-high' : 'risk-low'}">
+                    <div class="risk-icon">
+                        ${result.predicted === "Leave" ? '⚠️' : '✅'}
+                    </div>
+                    <div class="risk-title">
+                        ${result.predicted === "Leave" ? 'Churned' : 'Not Churned'}
+                    </div>
+                    <div class="risk-subtitle">
+                        Assessment attempt: ${assessmentCount}
+                    </div>
+                </div>
+            `;
+
+                document.getElementById('resultsState').innerHTML = resultsHTML;
+                document.getElementById('resultsState').style.display = 'block';
+
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('emptyState').style.display = 'block';
+
+                let errorMsg = 'Unable to connect to prediction service. ';
+                if (error.message.includes('Failed to fetch')) {
+                    errorMsg += 'Please ensure your FastAPI server is running on http://127.0.0.1:8000';
+                } else {
+                    errorMsg += 'Please try again or contact support.';
+                }
+
+                document.getElementById('errorMessage').textContent = errorMsg;
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+
+            // Reset button
+            document.getElementById('analyzeBtn').disabled = false;
+            document.getElementById('analyzeBtn').textContent = 'Analyze Risk';
+        });
+    </script>
+
+</body>
+
+</html>
